@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Noty timemanager",
+    "description": "This extension notify about ..",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html",
+        "default_title": "you can see noty"
+    },
+    "permissions": [
+        "https://*/",
+        "notifications",
+        "tabs"
+    ],
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "web_accessible_resources": [
+        "images/bamboo.jpg"
+    ],
+    "options_page": "options.html",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [
+        {
+            "matches": ["https://site.ru/site/login","http://site.dev/site/login"],
+            "css": ["css/content_scripts_autoLogin.css"],
+            "js": ["js/jquery.js", "js/content_scripts_autoLogin.js"]
+        }
+    ]
+}
